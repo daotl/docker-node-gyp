@@ -10,8 +10,8 @@ on:
       - '**'
 
 env:
-  REPOSITORY: andreysenov/node-gyp
-  VERSION: 8.4.1
+  REPOSITORY: daotl/node-gyp
+  VERSION: 9.0.0
 
 jobs:
   node-gyp:
@@ -20,21 +20,26 @@ jobs:
     strategy:
       matrix:
         context: [
+          # {
+          #   dockerfile: Dockerfile,
+          #   node: node-lts,
+          #   os: alpine
+          # },
           {
-            dockerfile: Dockerfile,
-            node: node-lts,
+            dockerfile: Dockerfile.node18,
+            node: node-18,
             os: alpine
           },
-          {
-            dockerfile: Dockerfile.node14,
-            node: node-14,
-            os: alpine
-          },
-          {
-            dockerfile: Dockerfile.node12,
-            node: node-12,
-            os: alpine
-          }
+          # {
+          #   dockerfile: Dockerfile.node14,
+          #   node: node-14,
+          #   os: alpine
+          # },
+          # {
+          #   dockerfile: Dockerfile.node12,
+          #   node: node-12,
+          #   os: alpine
+          # }
         ]
 
     steps:

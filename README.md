@@ -2,8 +2,8 @@
 
 [node-gyp](https://www.npmjs.com/package/node-gyp) installed globally over the official [NodeJS image](https://hub.docker.com/_/node)
 
-![version](https://img.shields.io/docker/v/andreysenov/node-gyp?sort=semver)
-![build status](https://github.com/AndreySenov/node-gyp-docker/actions/workflows/default.yml/badge.svg)
+![version](https://img.shields.io/docker/v/daotl/node-gyp?sort=semver)
+![build status](https://github.com/daotl/node-gyp-docker/actions/workflows/default.yml/badge.svg)
 
 ```
 THIS DOCKER IMAGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
@@ -17,15 +17,13 @@ OUT OF OR IN CONNECTION WITH THE DOCKER IMAGE OR THE USE OR OTHER DEALINGS IN TH
 ## Quick reference
 
 #### Tags & Dockerfiles
-* [latest, latest-node-lts](https://github.com/AndreySenov/node-gyp-docker/blob/main/Dockerfile)
-* [latest-node-14](https://github.com/AndreySenov/node-gyp-docker/blob/main/Dockerfile.node14)
-* [latest-node-12](https://github.com/AndreySenov/node-gyp-docker/blob/main/Dockerfile.node12)
+* [latest-node-18](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18)
 
 #### Where to find more versions and tags
-[the Tags page on Docker Hub](https://hub.docker.com/r/andreysenov/node-gyp/tags)
+[the Tags page on Docker Hub](https://hub.docker.com/r/daotl/node-gyp/tags)
 
 #### Where to file issues
-[the Issues page on Github](https://github.com/AndreySenov/node-gyp-docker/issues)
+[the Issues page on Github](https://github.com/daotl/node-gyp-docker/issues)
 
 ## Image content
 
