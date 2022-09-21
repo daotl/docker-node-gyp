@@ -19,6 +19,8 @@ OUT OF OR IN CONNECTION WITH THE DOCKER IMAGE OR THE USE OR OTHER DEALINGS IN TH
 #### Tags & Dockerfiles
 * [latest-node-18](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18)
 * [latest-node-18-root](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (run as `root` user)
+* [latest-node-18-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (with `git` command executable available)
+* [latest-node-18-root-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (run as `root` user, with `git` command executable available)
 
 #### Where to find more versions and tags
 [the Tags page on Docker Hub](https://hub.docker.com/r/daotl/node-gyp/tags)

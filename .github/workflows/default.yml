@@ -23,27 +23,37 @@ jobs:
         context: [
           # {
           #   dockerfile: Dockerfile,
-          #   node: node-lts,
+          #   flavor: node-lts,
           #   os: alpine
           # },
           {
             dockerfile: Dockerfile.node18,
-            node: node-18,
+            flavor: node-18,
             os: alpine
           },
           {
             dockerfile: Dockerfile.node18-root,
-            node: node-18-root,
+            flavor: node-18-root,
+            os: alpine
+          },
+          {
+            dockerfile: Dockerfile.node18-git,
+            flavor: node-18,
+            os: alpine
+          },
+          {
+            dockerfile: Dockerfile.node18-root-git,
+            flavor: node-18-root,
             os: alpine
           },
           # {
           #   dockerfile: Dockerfile.node14,
-          #   node: node-14,
+          #   flavor: node-14,
           #   os: alpine
           # },
           # {
           #   dockerfile: Dockerfile.node12,
-          #   node: node-12,
+          #   flavor: node-12,
           #   os: alpine
           # }
         ]
@@ -57,10 +67,10 @@ jobs:
         run: >
           docker build . --no-cache --pull
           -f ${{ matrix.context.dockerfile }}
-          -t ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }}
-          -t ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }}-${{ matrix.context.os }}
-          -t ${{ env.REPOSITORY }}:latest-${{ matrix.context.node }}
-          -t ${{ env.REPOSITORY }}:latest-${{ matrix.context.node }}-${{ matrix.context.os }}
+          -t ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}
+          -t ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}-${{ matrix.context.os }}
+          -t ${{ env.REPOSITORY }}:latest-${{ matrix.context.flavor }}
+          -t ${{ env.REPOSITORY }}:latest-${{ matrix.context.flavor }}-${{ matrix.context.os }}
           --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           --build-arg VERSION=${{ env.VERSION }}
           --build-arg VCS_REF=${{ github.sha }}
@@ -72,16 +82,16 @@ jobs:
       - name: Publish the Docker image
         if: ${{ github.event_name != 'pull_request' }}
         run: |
-          docker push ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }}
-          docker push ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }}-${{ matrix.context.os }}
-          docker push ${{ env.REPOSITORY }}:latest-${{ matrix.context.node }}
+          docker push ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}
+          docker push ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}-${{ matrix.context.os }}
+          docker push ${{ env.REPOSITORY }}:latest-${{ matrix.context.flavor }}
 
       - name: Publish the Docker image (Latest)
         if: ${{ github.event_name != 'pull_request' && matrix.context.dockerfile == 'Dockerfile' }}
         run: |
-          docker tag ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }}-${{ matrix.context.os }} ${{ env.REPOSITORY }}:${{ env.VERSION }}
-          docker tag ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }}-${{ matrix.context.os }} ${{ env.REPOSITORY }}:latest-${{ matrix.context.os }}
-          docker tag ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.node }} ${{ env.REPOSITORY }}:latest
+          docker tag ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}-${{ matrix.context.os }} ${{ env.REPOSITORY }}:${{ env.VERSION }}
+          docker tag ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}-${{ matrix.context.os }} ${{ env.REPOSITORY }}:latest-${{ matrix.context.os }}
+          docker tag ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }} ${{ env.REPOSITORY }}:latest
           docker push ${{ env.REPOSITORY }}:${{ env.VERSION }}
           docker push ${{ env.REPOSITORY }}:latest-${{ matrix.context.os }}
           docker push ${{ env.REPOSITORY }}:latest
