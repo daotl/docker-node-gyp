@@ -38,12 +38,12 @@ jobs:
           },
           {
             dockerfile: Dockerfile.node18-git,
-            flavor: node-18,
+            flavor: node-18-git,
             os: alpine
           },
           {
             dockerfile: Dockerfile.node18-root-git,
-            flavor: node-18-root,
+            flavor: node-18-root-git,
             os: alpine
           },
           # {
