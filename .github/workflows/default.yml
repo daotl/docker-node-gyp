@@ -46,6 +46,11 @@ jobs:
             flavor: node-18-root-git,
             os: alpine
           },
+          {
+            dockerfile: Dockerfile.node18-root-git-pnpm-turborepo,
+            flavor: node-18-root-git-pnpm-turborepo,
+            os: alpine
+          },
           # {
           #   dockerfile: Dockerfile.node14,
           #   flavor: node-14,
