@@ -19,7 +19,8 @@ RUN apk add --no-cache python3 make g++ git openssh-client libc6-compat && \
     node-gyp help && \
     mkdir $HOME/.cache && \
     chown -R node:node $HOME && \
-    npm install -g pnpm
+    npm install -g pnpm && \
+    pnpm setup
 USER root
 VOLUME $HOME/.cache
 WORKDIR $HOME
