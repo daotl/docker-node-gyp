@@ -13,17 +13,18 @@ LABEL org.label-schema.schema-version="1.0" \
 ENV NODE_GYP_VERSION=${VERSION}
 ENV HOME=/root
 # `pnpm` needs `ssh`, `turborepo` needs `libc6-compat`
-# `pnpm setup` in Docker: https://github.com/pnpm/pnpm/issues/4495#issuecomment-1297010385
 RUN apk add --no-cache python3 make g++ git openssh-client libc6-compat && \
     yarn global add node-gyp@${VERSION} && \
     yarn cache clean && \
     node-gyp help && \
     mkdir $HOME/.cache && \
-    chown -R node:node $HOME && \
-    npm install -g pnpm && \
-    SHELL=bash pnpm setup && \
-    source ~/.bashrc
+    chown -R node:node $HOME
 USER root
+# Fix `pnpm setup` in Docker: https://github.com/pnpm/pnpm/issues/4495#issuecomment-1297010385
+RUN npm install -g pnpm && \
+    SHELL=bash pnpm setup
+# Alpine's way to specify a file to source on shell startup: https://stackoverflow.com/a/73954544/4923728
+ENV ENV=/root/.bashrc
 VOLUME $HOME/.cache
 WORKDIR $HOME
 CMD ["sh"]
