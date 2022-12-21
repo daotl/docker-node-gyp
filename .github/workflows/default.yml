@@ -27,37 +27,74 @@ jobs:
           #   os: alpine
           # },
           {
-            dockerfile: Dockerfile.node18,
+            nodejsVersion: 19,
+            dockerfile: Dockerfile,
+            flavor: node-19,
+            os: alpine
+          },
+          {
+            nodejsVersion: 19,
+            dockerfile: Dockerfile.root,
+            flavor: node-19-root,
+            os: alpine
+          },
+          {
+            nodejsVersion: 19,
+            dockerfile: Dockerfile.git,
+            flavor: node-19-git,
+            os: alpine
+          },
+          {
+            nodejsVersion: 19,
+            dockerfile: Dockerfile.root-git,
+            flavor: node-19-root-git,
+            os: alpine
+          },
+          {
+            nodejsVersion: 19,
+            dockerfile: Dockerfile.root-git-pnpm-turborepo,
+            flavor: node-19-root-git-pnpm-turborepo,
+            os: alpine
+          },
+          {
+            nodejsVersion: 18,
+            dockerfile: Dockerfile,
             flavor: node-18,
             os: alpine
           },
           {
-            dockerfile: Dockerfile.node18-root,
+            nodejsVersion: 18,
+            dockerfile: Dockerfile.root,
             flavor: node-18-root,
             os: alpine
           },
           {
-            dockerfile: Dockerfile.node18-git,
+            nodejsVersion: 18,
+            dockerfile: Dockerfile.git,
             flavor: node-18-git,
             os: alpine
           },
           {
-            dockerfile: Dockerfile.node18-root-git,
+            nodejsVersion: 18,
+            dockerfile: Dockerfile.root-git,
             flavor: node-18-root-git,
             os: alpine
           },
           {
-            dockerfile: Dockerfile.node18-root-git-pnpm-turborepo,
+            nodejsVersion: 18,
+            dockerfile: Dockerfile.root-git-pnpm-turborepo,
             flavor: node-18-root-git-pnpm-turborepo,
             os: alpine
           },
           # {
-          #   dockerfile: Dockerfile.node14,
+          #   nodejsVersion: 14,
+          #   dockerfile: Dockerfile.node,
           #   flavor: node-14,
           #   os: alpine
           # },
           # {
-          #   dockerfile: Dockerfile.node12,
+          #   nodejsVersion: 12,
+          #   dockerfile: Dockerfile.node,
           #   flavor: node-12,
           #   os: alpine
           # }
@@ -76,6 +113,7 @@ jobs:
           -t ${{ env.REPOSITORY }}:${{ env.VERSION }}-${{ matrix.context.flavor }}-${{ matrix.context.os }}
           -t ${{ env.REPOSITORY }}:latest-${{ matrix.context.flavor }}
           -t ${{ env.REPOSITORY }}:latest-${{ matrix.context.flavor }}-${{ matrix.context.os }}
+          --build-arg NODEJS_VERSION=${{ matrix.context.nodejsVersion }}
           --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           --build-arg VERSION=${{ env.VERSION }}
           --build-arg VCS_REF=${{ github.sha }}
