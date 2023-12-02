@@ -12,7 +12,7 @@ on:
 
 env:
   REPOSITORY: daotl/node-gyp
-  VERSION: 9.0.0
+  VERSION: 10.0.1
 
 jobs:
   node-gyp:
@@ -52,6 +52,12 @@ jobs:
           },
           {
             nodejsVersion: 20,
+            dockerfile: Dockerfile.root-git-pnpm,
+            flavor: node-20-root-git-pnpm,
+            os: alpine
+          },
+          {
+            nodejsVersion: 20,
             dockerfile: Dockerfile.root-git-pnpm-turborepo,
             flavor: node-20-root-git-pnpm-turborepo,
             os: alpine
@@ -82,6 +88,12 @@ jobs:
           },
           {
             nodejsVersion: 19,
+            dockerfile: Dockerfile.root-git-pnpm,
+            flavor: node-19-root-git-pnpm,
+            os: alpine
+          },
+          {
+            nodejsVersion: 19,
             dockerfile: Dockerfile.root-git-pnpm-turborepo,
             flavor: node-19-root-git-pnpm-turborepo,
             os: alpine
@@ -108,6 +120,12 @@ jobs:
             nodejsVersion: 18,
             dockerfile: Dockerfile.root-git,
             flavor: node-18-root-git,
+            os: alpine
+          },
+          {
+            nodejsVersion: 18,
+            dockerfile: Dockerfile.root-git-pnpm,
+            flavor: node-18-root-git-pnpm,
             os: alpine
           },
           {
