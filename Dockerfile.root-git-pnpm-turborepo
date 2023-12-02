@@ -4,7 +4,7 @@ ARG VERSION
 ARG VCS_REF
 
 
-FROM daotl/node-gyp:${NODEJS_VERSION}-alpine-root-git-pnpm
+FROM daotl/node-gyp:${VERSION}-node-${NODEJS_VERSION}-root-git-pnpm-alpine
 
 LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.name="node-gyp" \
