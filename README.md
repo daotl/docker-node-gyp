@@ -17,11 +17,24 @@ OUT OF OR IN CONNECTION WITH THE DOCKER IMAGE OR THE USE OR OTHER DEALINGS IN TH
 ## Quick reference
 
 #### Tags & Dockerfiles
-* [latest-node-18](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18)
-* [latest-node-18-root](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (run as `root` user)
-* [latest-node-18-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (with `git` command executable available)
-* [latest-node-18-root-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (run as `root` user, with `git` command executable available)
-* [latest-node-18-root-git-pnpm-turborepo](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.node18-root) (run as `root` user, with `git` command executable available, with global installed `pnpm` and `libc6-compat` package required by TurboRepo)
+
+* [latest-node-20](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile)
+* [latest-node-20-root](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root) (run as `root` user)
+* [latest-node-20-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.git) (with `git` command executable available)
+* [latest-node-20-root-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root-git) (run as `root` user, with `git` command executable available)
+* [latest-node-20-root-git-pnpm-turborepo](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root-git-pnpm-turborepo) (run as `root` user, with `git` command executable available, with global installed `pnpm` and `libc6-compat` package required by TurboRepo)
+
+* [latest-node-19](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile)
+* [latest-node-19-root](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root) (run as `root` user)
+* [latest-node-19-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.git) (with `git` command executable available)
+* [latest-node-19-root-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root-git) (run as `root` user, with `git` command executable available)
+* [latest-node-19-root-git-pnpm-turborepo](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root-git-pnpm-turborepo) (run as `root` user, with `git` command executable available, with global installed `pnpm` and `libc6-compat` package required by TurboRepo)
+
+* [latest-node-18](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile)
+* [latest-node-18-root](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root) (run as `root` user)
+* [latest-node-18-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.git) (with `git` command executable available)
+* [latest-node-18-root-git](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root-git) (run as `root` user, with `git` command executable available)
+* [latest-node-18-root-git-pnpm-turborepo](https://github.com/daotl/node-gyp-docker/blob/main/Dockerfile.root-git-pnpm-turborepo) (run as `root` user, with `git` command executable available, with global installed `pnpm` and `libc6-compat` package required by TurboRepo)
 
 #### Where to find more versions and tags
 [the Tags page on Docker Hub](https://hub.docker.com/r/daotl/node-gyp/tags)

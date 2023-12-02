@@ -27,6 +27,36 @@ jobs:
           #   os: alpine
           # },
           {
+            nodejsVersion: 20,
+            dockerfile: Dockerfile,
+            flavor: node-20,
+            os: alpine
+          },
+          {
+            nodejsVersion: 20,
+            dockerfile: Dockerfile.root,
+            flavor: node-20-root,
+            os: alpine
+          },
+          {
+            nodejsVersion: 20,
+            dockerfile: Dockerfile.git,
+            flavor: node-20-git,
+            os: alpine
+          },
+          {
+            nodejsVersion: 20,
+            dockerfile: Dockerfile.root-git,
+            flavor: node-20-root-git,
+            os: alpine
+          },
+          {
+            nodejsVersion: 20,
+            dockerfile: Dockerfile.root-git-pnpm-turborepo,
+            flavor: node-20-root-git-pnpm-turborepo,
+            os: alpine
+          },
+          {
             nodejsVersion: 19,
             dockerfile: Dockerfile,
             flavor: node-19,
